@@ -45,10 +45,7 @@ defmodule Voodoo.Model do
   """
   def quote(params) do
     url = @endpoint <> "/quote"
-    body = %{model_id: params.model_id,
-             units: params.units,
-             material_id: params.material_id,
-             qty: params.qty}
+    body = params
 
     Voodoo.make_request(:get, url, body)
     |> Voodoo.Util.handle_voodoo_response
@@ -82,14 +79,7 @@ defmodule Voodoo.Model do
                       quantity: 1})
   """
   def quote_with_attributes(params) do
-    body = %{x: params.x,
-          y: params.y,
-          z: params.z,
-          surface_area: params.surface_area,
-          volume: params.volume,
-          material_id: params.material_id,
-          units: params.units,
-          quantity: params.quantity}
+    body = params
     url = @endpoint <> "/quote/attributes"
 
     Voodoo.make_request(:get, url , body)
