@@ -15,7 +15,9 @@ defmodule Voodoo.Model do
   ```
   """
   def id do
-    Voodoo.make_request(:post, @endpoint, %{"file_url" => "https://s3-us-west-2.amazonaws.com/sightline-maps-static-assets/demo.stl"}, [{:timeout, 60000}])
+    opts = [timeout: 100000, recv_timeout: 100000]
+    body = %{"file_url" => "https://s3-us-west-2.amazonaws.com/sightline-maps-static-assets/demo.stl"}
+    Voodoo.make_request(:post, @endpoint, body, opts)
     |> Voodoo.Util.handle_voodoo_response
   end
 
