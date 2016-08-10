@@ -5,10 +5,9 @@ defmodule Voodoo.Util do
 
   # process voodoo response
   def handle_voodoo_response(res) do
-    cond do
-      res["error"] -> {:error, res}
-      res["data"] -> {:ok, res}
-      true -> {:ok, res}
+    case res do
+      {:error, error} -> {:error, error.reason}
+      {:ok, res} -> {:ok, res.body}
     end
   end
 end
