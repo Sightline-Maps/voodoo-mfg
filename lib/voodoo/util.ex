@@ -7,7 +7,7 @@ defmodule Voodoo.Util do
   def handle_voodoo_response(res) do
     case res do
       {:error, error} -> {:error, error.reason}
-      {:ok, res} -> {:ok, res.body}
+      {:ok, res} -> Poison.decode(res.body)
     end
   end
 end
