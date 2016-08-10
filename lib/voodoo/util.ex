@@ -5,6 +5,7 @@ defmodule Voodoo.Util do
 
   # process voodoo response
   def handle_voodoo_response(res) do
+    IO.puts "#{inspect res}"
     case res do
       {:error, error} -> {:error, error.reason}
       {:ok, res} -> Poison.decode(res.body)

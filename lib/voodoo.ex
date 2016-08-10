@@ -29,6 +29,14 @@ defmodule Voodoo do
   end
 
   @doc """
+  Process request body and convert to escaped json string
+  Accepts a map
+  """
+  def process_request_body(body) do
+    Poison.encode! body
+  end
+
+  @doc """
   Set request headers and format
   """
   def req_headers do
@@ -74,8 +82,9 @@ defmodule Voodoo do
     * body - request body
     * options - request options
   """
-  def make_request(method, url, body \\ "") do
+  def make_request(method, url, body \\ %{}, options \\ []) do
     headers = req_headers
+    IO.puts "#{inspect options}"
     {:ok, response} = request(method, url, body, headers)
   end
 
