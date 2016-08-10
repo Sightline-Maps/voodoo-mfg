@@ -10,7 +10,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
     ```elixir
     def deps do
-      [{:voodoo, "~> 0.1.0"}]
+      [{:voodoo_mfg, "~> 0.1.0"}]
     end
     ```
 
@@ -18,14 +18,14 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
     ```elixir
     def application do
-      [applications: [:voodoo]]
+      [applications: [:voodoo_mfg]]
     end
     ```
 
 And add configuration to `config.exs`:
 
 ```elixir
-config :voodoo,
+config :voodoo_mfg,
   secret_key: System.get_env("VOODOO_KEY"),
   api_host: System.get_env("VOODOO_HOST")
 ```

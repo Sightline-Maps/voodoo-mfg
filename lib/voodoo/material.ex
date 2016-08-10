@@ -3,20 +3,19 @@ defmodule Voodoo.Material do
   Get list of available materials
   """
 
+  @endpoint "/materials"
+
   @doc """
   Get list of materials from Voodoo
 
   ## Examples
 
   ```elixir
-  {:ok, materials} = Voodoo.Material.list
+  {:ok, result} = Voodoo.Material.list
   ```
   """
   def list do
-    
+    Voodoo.make_request(:get, @endpoint)
+    |> Voodoo.Util.handle_voodoo_response
   end
 end
-
-
-# Stripe.make_request_with_key(:get, "#{@endpoint}?limit=#{limit}", key)
-#     |> Stripe.Util.handle_stripe_response

@@ -45,7 +45,7 @@ defmodule Voodoo do
       secret_key in your config.exs and environment specific config files
       to have accurate reporting of errors.
 
-      config :voodoo,
+      config :voodoo_mfg,
         secret_key: <VOODOO_SECRET_KEY>,
         api_host: <VOODOO_HOST>
     """
@@ -58,7 +58,7 @@ defmodule Voodoo do
       api_host in your config.exs and environment specific config files
       to have accurate reporting of errors.
 
-      config :voodoo,
+      config :voodoo_mfg,
         secret_key: <VOODOO_SECRET_KEY>,
         api_host: <VOODOO_HOST>
     """
@@ -80,7 +80,7 @@ defmodule Voodoo do
   end
 
   defp require_voodoo_key do
-    case Application.get_env(:voodoo, :secret_key, System.get_env "VOODOO_SECRET_KEY") || :not_found do
+    case Application.get_env(:voodoo_mfg, :secret_key, System.get_env "VOODOO_SECRET_KEY") || :not_found do
       :not_found ->
         raise MissingSecretKeyError
       value -> value
@@ -88,7 +88,7 @@ defmodule Voodoo do
   end
 
   defp require_voodoo_host do
-    case Application.get_env(:voodoo, :api_host, System.get_env "VOODOO_API_HOST") || :not_found do
+    case Application.get_env(:voodoo_mfg, :api_host, System.get_env "VOODOO_API_HOST") || :not_found do
       :not_found ->
         raise MissingAPIHostError
       value -> value
