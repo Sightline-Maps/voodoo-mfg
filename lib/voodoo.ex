@@ -84,7 +84,6 @@ defmodule Voodoo do
   """
   def make_request(method, url, body \\ %{}, options \\ []) do
     headers = req_headers
-    IO.puts "#{inspect options}"
     {:ok, response} = request(method, url, body, headers, options)
   end
 

@@ -8,15 +8,19 @@ defmodule Voodoo.Model do
   @doc """
   Get model id
 
+  *Note that this process can take a long time. The timeout is set to 5 minutes.*
+
   ## Examples
 
   ```elixir
-  {:ok, result} = Voodoo.Model.id
+  {:ok, result} = Voodoo.Model.id(
+                 %{file_url: "https://s3-us-west-2.amazonaws.com/sightline-maps-static-assets/demo.stl"})
   ```
   """
-  def id do
-    opts = [timeout: 100000, recv_timeout: 100000]
-    body = %{"file_url" => "https://s3-us-west-2.amazonaws.com/sightline-maps-static-assets/demo.stl"}
+  def id(params) do
+    opts = [timeout: 300000, recv_timeout: 300000]
+    body = params
+
     Voodoo.make_request(:post, @endpoint, body, opts)
     |> Voodoo.Util.handle_voodoo_response
   end
@@ -33,14 +37,20 @@ defmodule Voodoo.Model do
 
   ## Examples
 
-  {:ok, result} = Voodoo.Model.quote
+  {:ok, result} = Voodoo.Model.quote(
+                  %{model_id: 1234,
+                    units: "cm",
+                    material_id: 7,
+                    qty: 1})
   """
-  def quote(model_id, units, material_id, qty) do
-    Voodoo.make_request(:get, @endpoint <> "/quote",
-    %{"model_id" => model_id,
-      "units" => units,
-      "material_id" => material_id,
-      "qty" => qty})
+  def quote(params) do
+    url = @endpoint <> "/quote"
+    body = %{model_id: params.model_id,
+             units: params.units,
+             material_id: params.material_id,
+             qty: params.qty}
+
+    Voodoo.make_request(:get, url, body)
     |> Voodoo.Util.handle_voodoo_response
   end
 
@@ -72,15 +82,17 @@ defmodule Voodoo.Model do
                       quantity: 1})
   """
   def quote_with_attributes(params) do
-    Voodoo.make_request(:get, @endpoint <> "/quote/attributes",
-    %{x: params.x,
-      y: params.y,
-      z: params.z,
-      surface_area: params.surface_area,
-      volume: params.volume,
-      material_id: params.material_id,
-      units: params.units,
-      quantity: params.quantity})
+    body = %{x: params.x,
+          y: params.y,
+          z: params.z,
+          surface_area: params.surface_area,
+          volume: params.volume,
+          material_id: params.material_id,
+          units: params.units,
+          quantity: params.quantity}
+    url = @endpoint <> "/quote/attributes"
+
+    Voodoo.make_request(:get, url , body)
     |> Voodoo.Util.handle_voodoo_response
   end
 end
