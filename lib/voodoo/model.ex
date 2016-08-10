@@ -34,11 +34,18 @@ defmodule Voodoo.Model do
   {:ok, result} = Voodoo.Model.quote
   """
   def quote(model_id, units, material_id, qty) do
-    Voodoo.make_request(:get, @endpoint <> "/quote", {})
+    Voodoo.make_request(:get, @endpoint <> "/quote",
+    %{"model_id" => model_id,
+      "units" => units,
+      "material_id" => material_id,
+      "qty" => qty})
+    |> Voodoo.Util.handle_voodoo_response
   end
 
   @doc """
   Gets the quote for a model with the given attributes.
+
+  Takes in a map with the following arguments.
 
   Args:
     * x - integer for bounding box x
@@ -52,9 +59,26 @@ defmodule Voodoo.Model do
 
     ## Examples
 
-    {:ok, result} = Voodoo.Model.quote_with_attributes
+    {:ok, result} = Voodoo.Model.quote_with_attributes(
+                    %{x: 15,
+                      y: 22,
+                      z: 23,
+                      surface_area: 100,
+                      volume: 200,
+                      material_id: 7,
+                      units: "cm",
+                      quantity: 1})
   """
-  def quote_with_attributes(x, y, z, surface_area, volume, material_id, units, quantity) do
-
+  def quote_with_attributes(params) do
+    Voodoo.make_request(:get, @endpoint <> "/quote/attributes",
+    %{x: params.x,
+      y: params.y,
+      z: params.z,
+      surface_area: params.surface_area,
+      volume: params.volume,
+      material_id: params.material_id,
+      units: params.units,
+      quantity: params.quantity})
+    |> Voodoo.Util.handle_voodoo_response
   end
 end
