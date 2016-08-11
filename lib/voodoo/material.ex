@@ -1,12 +1,12 @@
 defmodule Voodoo.Material do
   @moduledoc """
-  Get list of available materials
+  Get list of available materials
   """
 
   @endpoint "/materials"
 
   @doc """
-  Get list of materials from Voodoo
+  Get list of materials from Voodoo
 
   ## Examples
 

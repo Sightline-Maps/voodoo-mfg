@@ -1,8 +1,10 @@
 defmodule Voodoo.Order do
   @moduledoc """
-  Handle orders for Voodoo Mfg
+  Handle orders for Voodoo Mfg
   (https://github.com/oortlieb/voodoo-api#api-endpoints)
   """
+
+  alias Voodoo.Util
 
   @endpoint "/order"
 
@@ -21,14 +23,14 @@ defmodule Voodoo.Order do
   """
   def direct_print(params) do
     url = @endpoint <> "/direct-print"
-    body = params
+    opts = Util.prepare_params(params)
 
-    Voodoo.make_request(:get, url, body)
-    |> Voodoo.Util.handle_voodoo_response
+    Voodoo.make_request(:get, url, %{}, opts)
+    |> Util.handle_voodoo_response
   end
 
   @doc """
-  Get shipping rates
+  Get shipping rates
 
   ## Examples
 
@@ -56,11 +58,11 @@ defmodule Voodoo.Order do
     body = params
 
     Voodoo.make_request(:post, url, body)
-    |> Voodoo.Util.handle_voodoo_response
+    |> Util.handle_voodoo_response
   end
 
   @doc """
-  Create an order
+  Create an order
 
   ## Examples
 
@@ -80,11 +82,11 @@ defmodule Voodoo.Order do
     body = params
 
     Voodoo.make_request(:post, url, body)
-    |> Voodoo.Util.handle_voodoo_response
+    |> Util.handle_voodoo_response
   end
 
   @doc """
-  Get confirmation of order
+  Get confirmation of order
 
   ## Examples
 
@@ -97,7 +99,7 @@ defmodule Voodoo.Order do
     body = params
 
     Voodoo.make_request(:post, url, body)
-    |> Voodoo.Util.handle_voodoo_response
+    |> Util.handle_voodoo_response
   end
 
 end

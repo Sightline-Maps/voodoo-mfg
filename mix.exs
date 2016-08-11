@@ -10,6 +10,9 @@ defmodule Voodoo.Mixfile do
      contributors: "Sam Corcos",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     preferred_cli_env: [
+        vcr: :test, "vcr.delete": :test, "vcr.check": :test, "vcr.show": :test
+      ],
      deps: deps()]
   end
 
@@ -35,7 +38,8 @@ defmodule Voodoo.Mixfile do
   defp deps do
     [
       {:poison, "~> 2.0"},
-      {:httpoison, "~> 0.9.0"}
+      {:httpoison, "~> 0.9.0"},
+      {:exvcr, "~> 0.7", only: :test}
     ]
   end
 end

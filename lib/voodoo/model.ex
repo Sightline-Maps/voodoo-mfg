@@ -3,10 +3,12 @@ defmodule Voodoo.Model do
   Get model estimate or model id
   """
 
+  alias Voodoo.Util
+
   @endpoint "/model"
 
   @doc """
-  Get model id
+  Get model id
 
   *Note that this process can take a long time. The timeout is set to 5 minutes.*
 
@@ -22,7 +24,7 @@ defmodule Voodoo.Model do
     body = params
 
     Voodoo.make_request(:post, @endpoint, body, opts)
-    |> Voodoo.Util.handle_voodoo_response
+    |> Util.handle_voodoo_response
   end
 
   @doc """
@@ -43,16 +45,16 @@ defmodule Voodoo.Model do
                     material_id: 7,
                     qty: 1})
   """
-  def quote(params) do
+  def get_quote(params) do
     url = @endpoint <> "/quote"
-    body = params
+    opts = Util.prepare_params(params)
 
-    Voodoo.make_request(:get, url, body)
-    |> Voodoo.Util.handle_voodoo_response
+    Voodoo.make_request(:get, url, "", opts)
+    |> Util.handle_voodoo_response
   end
 
   @doc """
-  Gets the quote for a model with the given attributes.
+  Gets the quote for a model with the given attributes.
 
   Takes in a map with the following arguments.
 
@@ -83,6 +85,6 @@ defmodule Voodoo.Model do
     url = @endpoint <> "/quote/attributes"
 
     Voodoo.make_request(:get, url , body)
-    |> Voodoo.Util.handle_voodoo_response
+    |> Util.handle_voodoo_response
   end
 end
