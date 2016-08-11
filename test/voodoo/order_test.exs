@@ -16,25 +16,26 @@ defmodule Voodoo.OrderTest do
     end
   end
 
-  # test "create shipment for uploaded items" do
-  #   use_cassette "create shipment for uploaded items" do
-  #     params = %{models: [%{
-  #                 material_id: 7,
-  #                 model_id: 1696,
-  #                 qty: 1,
-  #                 units: "mm"}],
-  #               shipping_info: %{
-  #                 city: "foo",
-  #                 name: "bar",
-  #                 zip: "12345",
-  #                 street1: "123 foo st",
-  #                 street2: "#1",
-  #                 state: "CA",
-  #                 country: "USA"}}
-  #     {:ok, resp} = shipping_rates(params)
-  #     assert resp == ""
-  #   end
-  # end
+  test "create shipment for uploaded items" do
+    # https://github.com/oortlieb/voodoo-api#post-ordershipping
+    use_cassette "create shipment for uploaded items" do
+      params = %{models: [%{
+                  material_id: 7,
+                  model_id: 1696,
+                  qty: 1,
+                  units: "mm"}],
+                shipping_info: %{
+                  city: "foo",
+                  name: "bar",
+                  zip: "12345",
+                  street1: "123 foo st",
+                  street2: "#1",
+                  state: "CA",
+                  country: "USA"}}
+      {:ok, resp} = shipping_rates(params)
+      assert resp == ""
+    end
+  end
 
   test "create order on the server" do
     # https://github.com/oortlieb/voodoo-api/blob/master/README.md#post-ordercreate
