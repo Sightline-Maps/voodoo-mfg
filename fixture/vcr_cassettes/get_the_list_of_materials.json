@@ -1,0 +1,26 @@
+[
+  {
+    "request": {
+      "body": "{}",
+      "headers": {
+        "content-type": "application/json",
+        "key": "a4f2363e88058775c029ba239a8a3165ccf39f27d74f4e8c3a4db776386e6618"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://staging-api.voodoomfg.com/api/1/materials"
+    },
+    "response": {
+      "body": "[{\"id\":1,\"color\":\"True Red\",\"type\":\"PLA\",\"color_sample\":\"#CF1B1D\"},{\"id\":2,\"color\":\"True Brown\",\"type\":\"PLA\",\"color_sample\":\"#995D15\"},{\"id\":3,\"color\":\"True Orange\",\"type\":\"PLA\",\"color_sample\":\"#FF7519\"},{\"id\":4,\"color\":\"True Yellow\",\"type\":\"PLA\",\"color_sample\":\"#FFFF00\"},{\"id\":5,\"color\":\"True Green\",\"type\":\"PLA\",\"color_sample\":\"#26944B\"},{\"id\":6,\"color\":\"True Blue\",\"type\":\"PLA\",\"color_sample\":\"#0A99E8\"},{\"id\":7,\"color\":\"True Purple\",\"type\":\"PLA\",\"color_sample\":\"#552358\"},{\"id\":8,\"color\":\"True White\",\"type\":\"PLA\",\"color_sample\":\"#FFFFFF\"},{\"id\":9,\"color\":\"Warm Gray\",\"type\":\"PLA\",\"color_sample\":\"#EAE2CB\"},{\"id\":10,\"color\":\"Cool Gray\",\"type\":\"PLA\",\"color_sample\":\"#AAAAAA\"},{\"id\":11,\"color\":\"True Black\",\"type\":\"PLA\",\"color_sample\":\"#000000\"},{\"id\":12,\"color\":\"Transluscent Natural\",\"type\":\"PLA\",\"color_sample\":\"#E1D5B6\"},{\"id\":13,\"color\":\"Robin's Egg\",\"type\":\"PLA\",\"color_sample\":\"#A2CFD8\"},{\"id\":14,\"color\":\"Jadeite\",\"type\":\"PLA\",\"color_sample\":\"#CBD5BD\"},{\"id\":15,\"color\":\"Lemon Drop\",\"type\":\"PLA\",\"color_sample\":\"#F5E6B8\"},{\"id\":16,\"color\":\"Glow in the Dark\",\"type\":\"PLA\",\"color_sample\":\"#90F3BC\"},{\"id\":18,\"color\":\"Sparkly Black\",\"type\":\"PLA\",\"color_sample\":\"#000000\"},{\"id\":19,\"color\":\"Transluscent Red\",\"type\":\"PLA\",\"color_sample\":\"#99131C\"},{\"id\":20,\"color\":\"Transluscent Orange\",\"type\":\"PLA\",\"color_sample\":\"#DE5F2F\"},{\"id\":21,\"color\":\"Transluscent Yellow\",\"type\":\"PLA\",\"color_sample\":\"#FBF15F\"},{\"id\":22,\"color\":\"Transluscent Green\",\"type\":\"PLA\",\"color_sample\":\"#5CBD56\"},{\"id\":23,\"color\":\"Transluscent Blue\",\"type\":\"PLA\",\"color_sample\":\"#8992B9\"},{\"id\":24,\"color\":\"Transcluscent Purple\",\"type\":\"PLA\",\"color_sample\":\"#552A35\"},{\"id\":25,\"color\":\"Neon Green\",\"type\":\"PLA\",\"color_sample\":\"#83F52C\"},{\"id\":26,\"color\":\"Neon Orange\",\"type\":\"PLA\",\"color_sample\":\"#FD5F00\"},{\"id\":27,\"color\":\"Neon Pink\",\"type\":\"PLA\",\"color_sample\":\"#FF69B4\"},{\"id\":28,\"color\":\"Light Brown\",\"type\":\"PLA\",\"color_sample\":\"#C38D4D\"},{\"id\":29,\"color\":\"Peach\",\"type\":\"PLA\",\"color_sample\":\"#EDC7A3\"},{\"id\":32,\"color\":\"Ocean Blue\",\"type\":\"PLA\",\"color_sample\":\"#191F3F\"},{\"id\":33,\"color\":\"Army Green\",\"type\":\"PLA\",\"color_sample\":\"#524719\"},{\"id\":34,\"color\":\"Khaki\",\"type\":\"PLA\",\"color_sample\":\"#F0C696\"},{\"id\":42,\"color\":\"Black\",\"type\":\"Full-flex TPU\",\"color_sample\":\"#000000\"},{\"id\":45,\"color\":\"White\",\"type\":\"Full-flex TPU\",\"color_sample\":\"#FFFFFF\"},{\"id\":46,\"color\":\"White\",\"type\":\"Semi-flex TPU\",\"color_sample\":\"#FFFFFF\"},{\"id\":47,\"color\":\"Black\",\"type\":\"Semi-flex TPU\",\"color_sample\":\"#000000\"}]",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "2482",
+        "Date": "Thu, 11 Aug 2016 06:42:20 GMT",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
