@@ -55,8 +55,7 @@ defmodule Voodoo do
   """
   def process_url(url) do
     Voodoo.api_host
-    |> URI.merge(url)
-    |> URI.to_string()
+    |> Path.join(url)
   end
 
   @doc """
@@ -70,7 +69,7 @@ defmodule Voodoo do
   @doc """
   Set request headers and format
   """
-  def process_request_headers do
+  def process_request_headers(_) do
     Map.new
     |> Map.put("key", Voodoo.secret_key)
     |> Map.put("content-type",  "application/json")
@@ -88,6 +87,6 @@ defmodule Voodoo do
     * options - request options
   """
   def make_request(method, url, body \\ %{}, options \\ []) do
-    {:ok, _response} = request(method, url, body, %{}, options)
+    {:ok, _response} = request(method, url, body, [], options)
   end
 end
