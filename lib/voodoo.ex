@@ -7,15 +7,44 @@ defmodule Voodoo do
   """
   use HTTPoison.Base
 
-  @doc """
-  Grab VOODOO_SECRET_KEY
-  """
-  def config_or_env_key do
-    require_voodoo_key
+  defmodule MissingSecretKeyError do
+    defexception message: """
+      The secret_key setting is required so that we can report the
+      correct environment instance to Voodoo Mfg. Please configure
+      secret_key in your config.exs and environment specific config files
+      to have accurate reporting of errors.
+
+      config :voodoo_mfg,
+        secret_key: <VOODOO_SECRET_KEY>,
+        api_host: <VOODOO_HOST>
+    """
   end
 
+  defmodule MissingAPIHostError do
+    defexception message: """
+      The api_host setting is required so that we can report the
+      correct environment instance to Voodoo Mfg. Please configure
+      api_host in your config.exs and environment specific config files
+      to have accurate reporting of errors.
+
+      config :voodoo_mfg,
+        secret_key: <VOODOO_SECRET_KEY>,
+        api_host: <VOODOO_HOST>
+    """
+  end
+
+  @doc """
+  Grab VOODOO secret_key set in config
+  """
+  def config_or_env_key do
+    Application.get_env(:voodoo_mfg, :secret_key) ||  raise MissingSecretKeyError
+  end
+
+  @doc """
+  Grab Voodoo api_host set in config
+  """
   def config_or_env_host do
-    require_voodoo_host
+    Application.get_env(:voodoo_mfg, :api_host) ||  raise MissingSecretKeyError
   end
 
   @doc """
@@ -46,34 +75,8 @@ defmodule Voodoo do
       |> Map.to_list
   end
 
-  defmodule MissingSecretKeyError do
-    defexception message: """
-      The secret_key setting is required so that we can report the
-      correct environment instance to Voodoo Mfg. Please configure
-      secret_key in your config.exs and environment specific config files
-      to have accurate reporting of errors.
-
-      config :voodoo_mfg,
-        secret_key: <VOODOO_SECRET_KEY>,
-        api_host: <VOODOO_HOST>
-    """
-  end
-
-  defmodule MissingAPIHostError do
-    defexception message: """
-      The api_host setting is required so that we can report the
-      correct environment instance to Voodoo Mfg. Please configure
-      api_host in your config.exs and environment specific config files
-      to have accurate reporting of errors.
-
-      config :voodoo_mfg,
-        secret_key: <VOODOO_SECRET_KEY>,
-        api_host: <VOODOO_HOST>
-    """
-  end
-
   @doc """
-  Makes request to Voodoo using HTTPoison `request`
+  Makes request to Voodoo using HTTPoison `request`
   (https://hexdocs.pm/httpoison/HTTPoison.html#request/5)
 
   Args:
@@ -85,21 +88,5 @@ defmodule Voodoo do
   def make_request(method, url, body \\ %{}, options \\ []) do
     headers = req_headers
     {:ok, response} = request(method, url, body, headers, options)
-  end
-
-  defp require_voodoo_key do
-    case Application.get_env(:voodoo_mfg, :secret_key, System.get_env "VOODOO_SECRET_KEY") || :not_found do
-      :not_found ->
-        raise MissingSecretKeyError
-      value -> value
-    end
-  end
-
-  defp require_voodoo_host do
-    case Application.get_env(:voodoo_mfg, :api_host, System.get_env "VOODOO_API_HOST") || :not_found do
-      :not_found ->
-        raise MissingAPIHostError
-      value -> value
-    end
   end
 end
