@@ -1,6 +1,6 @@
 defmodule Voodoo.Order do
   @moduledoc """
-  Handle orders for Voodoo Mfg
+  Handle orders for Voodoo Mfg
   (https://github.com/oortlieb/voodoo-api#api-endpoints)
   """
 
@@ -28,7 +28,7 @@ defmodule Voodoo.Order do
   end
 
   @doc """
-  Get shipping rates
+  Get shipping rates
 
   ## Examples
 
@@ -60,7 +60,7 @@ defmodule Voodoo.Order do
   end
 
   @doc """
-  Create an order
+  Create an order
 
   ## Examples
 
@@ -84,7 +84,7 @@ defmodule Voodoo.Order do
   end
 
   @doc """
-  Get confirmation of order
+  Get confirmation of order
 
   ## Examples
 

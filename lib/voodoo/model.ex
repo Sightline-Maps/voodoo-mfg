@@ -6,7 +6,7 @@ defmodule Voodoo.Model do
   @endpoint "/model"
 
   @doc """
-  Get model id
+  Get model id
 
   *Note that this process can take a long time. The timeout is set to 5 minutes.*
 

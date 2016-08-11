@@ -1,6 +1,6 @@
 defmodule Voodoo.Util do
   @moduledoc """
-  Utilities library for Voodoo
+  Utilities library for Voodoo
   """
 
   # process voodoo response

@@ -1,6 +1,6 @@
 defmodule Voodoo do
   @moduledoc """
-   An HTTP client for Voodoo Manufacturing
+  An HTTP client for Voodoo Manufacturing
   https://www.voodoomfg.com
 
   ## Configuration
@@ -8,7 +8,7 @@ defmodule Voodoo do
   use HTTPoison.Base
 
   @doc """
-  Grab VOODOO_SECRET_KEY
+  Grab VOODOO_SECRET_KEY
   """
   def config_or_env_key do
     require_voodoo_key
@@ -19,7 +19,7 @@ defmodule Voodoo do
   end
 
   @doc """
-  Create the base URL for the endpoint
+  Create the base URL for the endpoint
   Args:
     * url - such as "/api"
   Returns string
@@ -29,7 +29,7 @@ defmodule Voodoo do
   end
 
   @doc """
-  Process request body and convert to escaped json string
+  Process request body and convert to escaped json string
   Accepts a map
   """
   def process_request_body(body) do
