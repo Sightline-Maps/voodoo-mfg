@@ -36,14 +36,14 @@ defmodule Voodoo do
   @doc """
   Grab VOODOO secret_key set in config
   """
-  def config_or_env_key do
+  def secret_key do
     Application.get_env(:voodoo_mfg, :secret_key) ||  raise MissingSecretKeyError
   end
 
   @doc """
   Grab Voodoo api_host set in config
   """
-  def config_or_env_host do
+  def api_host do
     Application.get_env(:voodoo_mfg, :api_host) ||  raise MissingSecretKeyError
   end
 
@@ -54,7 +54,9 @@ defmodule Voodoo do
   Returns string
   """
   def process_url(url) do
-    Voodoo.config_or_env_host <> url
+    Voodoo.api_host
+    |> URI.merge(url)
+    |> URI.to_string()
   end
 
   @doc """
@@ -68,11 +70,11 @@ defmodule Voodoo do
   @doc """
   Set request headers and format
   """
-  def req_headers do
+  def process_request_headers do
     Map.new
-      |> Map.put("key", Voodoo.config_or_env_key)
-      |> Map.put("content-type",  "application/json")
-      |> Map.to_list
+    |> Map.put("key", Voodoo.secret_key)
+    |> Map.put("content-type",  "application/json")
+    |> Map.to_list
   end
 
   @doc """
@@ -86,7 +88,6 @@ defmodule Voodoo do
     * options - request options
   """
   def make_request(method, url, body \\ %{}, options \\ []) do
-    headers = req_headers
-    {:ok, response} = request(method, url, body, headers, options)
+    {:ok, _response} = request(method, url, body, %{}, options)
   end
 end
