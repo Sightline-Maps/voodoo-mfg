@@ -9,14 +9,14 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "https://staging-api.voodoomfg.com/api/1/model/quote?material_id=1&model_id=1905&qty=1&units=cm"
+      "url": "https://staging-api.voodoomfg.com/api/1/model/quote/attributes?material_id=7&quantity=1&surface_area=100&units=cm&volume=200&x=15&y=22&z=23"
     },
     "response": {
       "body": "Bad Request",
       "headers": {
         "Content-Type": "text/plain; charset=utf-8",
         "Content-Length": "11",
-        "Date": "Thu, 11 Aug 2016 07:20:01 GMT",
+        "Date": "Thu, 11 Aug 2016 07:50:23 GMT",
         "Connection": "keep-alive"
       },
       "status_code": 400,
