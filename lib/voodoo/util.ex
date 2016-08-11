@@ -3,18 +3,20 @@ defmodule Voodoo.Util do
   Utilities library for Voodoo
   """
 
-  # process voodoo response
+  @doc """
+  Return response body from an HTTPoison.Response struct
+  """
   def handle_voodoo_response(res) do
     IO.puts "#{inspect res}"
     case res do
       {:error, error} ->
-        {:error, error}
+        {:error, error.reason}
       {:ok, %{headers: headers, body: body}} ->
         content_type = :proplists.get_value("Content-Type", headers)
         if match?("application/json" <> _, content_type) do
           Poison.decode(body)
         else
-          body
+          {:ok, body}
         end
     end
   end
