@@ -4,6 +4,8 @@ defmodule Voodoo.Order do
   (https://github.com/oortlieb/voodoo-api#api-endpoints)
   """
 
+  alias Voodoo.Util
+
   @endpoint "/order"
 
   @doc """
@@ -21,10 +23,10 @@ defmodule Voodoo.Order do
   """
   def direct_print(params) do
     url = @endpoint <> "/direct-print"
-    body = params
+    opts = Util.prepare_params(params)
 
-    Voodoo.make_request(:get, url, body)
-    |> Voodoo.Util.handle_voodoo_response
+    Voodoo.make_request(:get, url, %{}, opts)
+    |> Util.handle_voodoo_response
   end
 
   @doc """
@@ -56,7 +58,7 @@ defmodule Voodoo.Order do
     body = params
 
     Voodoo.make_request(:post, url, body)
-    |> Voodoo.Util.handle_voodoo_response
+    |> Util.handle_voodoo_response
   end
 
   @doc """
@@ -80,7 +82,7 @@ defmodule Voodoo.Order do
     body = params
 
     Voodoo.make_request(:post, url, body)
-    |> Voodoo.Util.handle_voodoo_response
+    |> Util.handle_voodoo_response
   end
 
   @doc """
@@ -97,7 +99,7 @@ defmodule Voodoo.Order do
     body = params
 
     Voodoo.make_request(:post, url, body)
-    |> Voodoo.Util.handle_voodoo_response
+    |> Util.handle_voodoo_response
   end
 
 end
