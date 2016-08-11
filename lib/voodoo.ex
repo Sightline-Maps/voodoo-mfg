@@ -56,6 +56,7 @@ defmodule Voodoo do
   def process_url(url) do
     Voodoo.api_host
     |> Path.join(url)
+    |> IO.inspect()
   end
 
   @doc """

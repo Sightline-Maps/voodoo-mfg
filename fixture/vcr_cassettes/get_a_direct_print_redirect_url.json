@@ -1,0 +1,26 @@
+[
+  {
+    "request": {
+      "body": "{}",
+      "headers": {
+        "content-type": "application/json",
+        "key": "a4f2363e88058775c029ba239a8a3165ccf39f27d74f4e8c3a4db776386e6618"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://staging-api.voodoomfg.com/api/1/order/direct-print?file_url=http%3A%2F%2Fwebsite.com%2Ffile.stl&material_id=7&quantity=1"
+    },
+    "response": {
+      "body": "{\"redirect\":\"https://staging.voodoomfg.com/direct-print?file_url=http%3A%2F%2Fwebsite.com%2Ffile.stl&material_id=7&quantity=1\"}",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "127",
+        "Date": "Thu, 11 Aug 2016 05:07:11 GMT",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
