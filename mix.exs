@@ -35,7 +35,8 @@ defmodule Voodoo.Mixfile do
   defp deps do
     [
       {:poison, "~> 2.0"},
-      {:httpoison, "~> 0.9.0"}
+      {:httpoison, "~> 0.9.0"},
+      {:exvcr, "~> 0.7", only: :test}
     ]
   end
 end
