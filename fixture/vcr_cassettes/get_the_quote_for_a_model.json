@@ -1,0 +1,28 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "content-type": "application/json",
+        "key": "secret_key"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://foo.com/model/quote?material_id=1&model_id=1905&qty=1&units=cm"
+    },
+    "response": {
+      "body": "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx/1.1.19</center>\r\n</body>\r\n</html>\r\n",
+      "headers": {
+        "Server": "nginx/1.1.19",
+        "Date": "Thu, 11 Aug 2016 06:56:25 GMT",
+        "Content-Type": "text/html",
+        "Content-Length": "185",
+        "Connection": "keep-alive",
+        "Location": "http://www.foo.com/model/quote?material_id=1&model_id=1905&qty=1&units=cm"
+      },
+      "status_code": 301,
+      "type": "ok"
+    }
+  }
+]

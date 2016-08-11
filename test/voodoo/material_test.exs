@@ -1,5 +1,5 @@
 defmodule Voodoo.MaterialTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   doctest Voodoo
 

@@ -10,6 +10,9 @@ defmodule Voodoo.Mixfile do
      contributors: "Sam Corcos",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     preferred_cli_env: [
+        vcr: :test, "vcr.delete": :test, "vcr.check": :test, "vcr.show": :test
+      ],
      deps: deps()]
   end
 
