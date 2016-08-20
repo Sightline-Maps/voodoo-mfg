@@ -50,6 +50,7 @@ defmodule Voodoo.Mixfile do
     [
       {:poison, "~> 2.0"},
       {:httpoison, "~> 0.9.0"},
+      {:ex_doc, github: "elixir-lang/ex_doc"},
       {:exvcr, "~> 0.7", only: :test}
     ]
   end
