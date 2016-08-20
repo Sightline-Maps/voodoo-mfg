@@ -3,10 +3,10 @@ defmodule Voodoo.Mixfile do
 
   def project do
     [app: :voodoo_mfg,
-     version: "0.1.0",
+     package: package(),
+     version: "1.0.0",
      elixir: "~> 1.3",
      description: "An HTTP client for Voodoo Manufacturing",
-     license: "MIT",
      contributors: "Sam Corcos",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -24,6 +24,17 @@ defmodule Voodoo.Mixfile do
       :httpoison,
       :logger
     ]]
+  end
+
+  defp package do
+    [ name: :voodoo_mfg,
+      files: [],
+      licenses: ["MIT"],
+      maintainers: ["Sam Corcos <sam@sightlinemaps.com>"],
+      links: %{"GitHub" => "https://github.com/Sightline-Maps/voodoo-mfg",
+               "Docs" => "https://github.com/Sightline-Maps/voodoo-mfg",
+               "Sightline Maps" => "https://sightlinemaps.com",
+               "Voodoo Manufacturing" => "https://voodoomfg.com"}]
   end
 
   # Dependencies can be Hex packages:
