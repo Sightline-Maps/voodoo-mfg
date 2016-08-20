@@ -28,7 +28,7 @@ defmodule Voodoo.Mixfile do
 
   defp package do
     [ name: :voodoo_mfg,
-      files: [],
+      files: ["lib", "mix.exs", "README*"],
       licenses: ["MIT"],
       maintainers: ["Sam Corcos <sam@sightlinemaps.com>"],
       links: %{"GitHub" => "https://github.com/Sightline-Maps/voodoo-mfg",
