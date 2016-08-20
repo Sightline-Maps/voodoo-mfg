@@ -81,10 +81,10 @@ defmodule Voodoo.Model do
                       quantity: 1})
   """
   def quote_with_attributes(params) do
-    body = params
     url = @endpoint <> "/quote/attributes"
+    opts = Util.prepare_params(params)
 
-    Voodoo.make_request(:get, url , body)
+    Voodoo.make_request(:get, url , "", opts)
     |> Util.handle_voodoo_response
   end
 end

@@ -1,0 +1,29 @@
+[
+  {
+    "request": {
+      "body": "{\"file_url\":\"https://s3-us-west-2.amazonaws.com/sightline-maps-static-assets/demo.stl\"}",
+      "headers": {
+        "content-type": "application/json",
+        "key": "a4f2363e88058775c029ba239a8a3165ccf39f27d74f4e8c3a4db776386e6618"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 300000,
+        "connect_timeout": 300000
+      },
+      "request_body": "",
+      "url": "https://staging-api.voodoomfg.com/api/1/model"
+    },
+    "response": {
+      "body": "{\"id\":1907,\"file_key\":\"6f15faa7/aeb6/4fa9/ae99/5e92949e58ec/demo.stl\",\"file_bucket\":\"repaired-models\",\"volume\":930583.831250032,\"surface_area\":200797.360817945,\"x\":299,\"y\":289,\"z\":38.2941093444824,\"notes\":null,\"file_uri\":\"repaired-models\"}",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "239",
+        "Date": "Thu, 11 Aug 2016 07:35:33 GMT",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
