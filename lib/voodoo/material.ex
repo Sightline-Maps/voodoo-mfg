@@ -16,6 +16,5 @@ defmodule Voodoo.Material do
   """
   def list do
     Voodoo.make_request(:get, @endpoint)
-    |> Voodoo.Util.handle_voodoo_response
   end
 end

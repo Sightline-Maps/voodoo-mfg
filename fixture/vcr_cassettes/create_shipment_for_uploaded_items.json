@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"shipping_info\":{\"zip\":\"12345\",\"street2\":\"#1\",\"street1\":\"123 foo st\",\"state\":\"CA\",\"name\":\"bar\",\"country\":\"USA\",\"city\":\"foo\"},\"models\":[{\"units\":\"mm\",\"qty\":1,\"model_id\":1696,\"material_id\":7}]}",
+      "body": "{\"shipping_address\":{\"zip\":\"12345\",\"street2\":\"#1\",\"street1\":\"123 foo st\",\"state\":\"CA\",\"name\":\"bar\",\"email\":\"test@voodoomfg.com\",\"country\":\"USA\",\"city\":\"foo\"},\"models\":[{\"units\":\"mm\",\"quantity\":1,\"model_id\":4414,\"material_id\":7}]}",
       "headers": {
         "content-type": "application/json",
         "key": "a4f2363e88058775c029ba239a8a3165ccf39f27d74f4e8c3a4db776386e6618"
@@ -15,8 +15,8 @@
       "body": "Internal Server Error",
       "headers": {
         "Content-Type": "text/plain; charset=utf-8",
+        "Date": "Tue, 08 Nov 2016 08:03:13 GMT",
         "Content-Length": "21",
-        "Date": "Thu, 11 Aug 2016 05:13:17 GMT",
         "Connection": "keep-alive"
       },
       "status_code": 500,

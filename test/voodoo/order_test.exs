@@ -21,10 +21,11 @@ defmodule Voodoo.OrderTest do
     use_cassette "create shipment for uploaded items" do
       params = %{models: [%{
                   material_id: 7,
-                  model_id: 1696,
-                  qty: 1,
-                  units: "mm"}],
-                shipping_info: %{
+                  model_id: 4414,
+                  quantity: 1,
+                  units: "cm"}],
+                shipping_address: %{
+                  email: "test@voodoomfg.com",
                   city: "foo",
                   name: "bar",
                   zip: "12345",
@@ -43,7 +44,7 @@ defmodule Voodoo.OrderTest do
       params = %{models: [
                 %{material_id: 1,
                   model_id: 1905,
-                  qty: 1,
+                  quantity: 1,
                   units: "mm"}],
                 shipment_id: "rate_0b011e90eb824e8ab72cbae2e4b7dda9"}
       {:ok, resp} = create(params)

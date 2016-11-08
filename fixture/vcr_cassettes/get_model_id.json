@@ -15,14 +15,38 @@
       "url": "https://staging-api.voodoomfg.com/api/1/model"
     },
     "response": {
-      "body": "{\"id\":1907,\"file_key\":\"6f15faa7/aeb6/4fa9/ae99/5e92949e58ec/demo.stl\",\"file_bucket\":\"repaired-models\",\"volume\":930583.831250032,\"surface_area\":200797.360817945,\"x\":299,\"y\":289,\"z\":38.2941093444824,\"notes\":null,\"file_uri\":\"repaired-models\"}",
+      "body": "{\"id\":4414,\"file_key\":\"3380bcee/a264/4fc5/b661/bb571360a4ec/demo.stl\",\"file_bucket\":\"repaired-models\",\"volume\":930583.831250032,\"surface_area\":200797.360817945,\"x\":299,\"y\":289,\"z\":38.2941093444824,\"notes\":null,\"rendering_url\":null,\"file_uri\":\"repaired-models\"}",
       "headers": {
         "Content-Type": "application/json; charset=utf-8",
-        "Content-Length": "239",
-        "Date": "Thu, 11 Aug 2016 07:35:33 GMT",
+        "Date": "Tue, 08 Nov 2016 06:28:49 GMT",
+        "Content-Length": "260",
         "Connection": "keep-alive"
       },
       "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "content-type": "application/json",
+        "key": "a4f2363e88058775c029ba239a8a3165ccf39f27d74f4e8c3a4db776386e6618"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://staging-api.voodoomfg.com/api/1/model/quote?material_id=1&model_id=4414&qty=1&units=cm"
+    },
+    "response": {
+      "body": "Request instance.quantity does not conform to the \"positiveInt\" format",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Date": "Tue, 08 Nov 2016 06:28:50 GMT",
+        "Content-Length": "70",
+        "Connection": "keep-alive"
+      },
+      "status_code": 400,
       "type": "ok"
     }
   }

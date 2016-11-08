@@ -17,6 +17,7 @@ defmodule Voodoo.Util do
         else
           {:ok, body}
         end
+      resp -> resp
     end
   end
 
