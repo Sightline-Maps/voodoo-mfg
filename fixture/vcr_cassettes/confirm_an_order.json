@@ -15,8 +15,8 @@
       "body": "No quote found.",
       "headers": {
         "Content-Type": "text/plain; charset=utf-8",
+        "Date": "Tue, 08 Nov 2016 07:59:01 GMT",
         "Content-Length": "15",
-        "Date": "Thu, 11 Aug 2016 05:53:41 GMT",
         "Connection": "keep-alive"
       },
       "status_code": 404,

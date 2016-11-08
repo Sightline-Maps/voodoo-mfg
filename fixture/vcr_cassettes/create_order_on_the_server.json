@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"shipment_id\":\"rate_0b011e90eb824e8ab72cbae2e4b7dda9\",\"models\":[{\"units\":\"mm\",\"qty\":1,\"model_id\":1905,\"material_id\":1}]}",
+      "body": "{\"shipment_id\":\"rate_0b011e90eb824e8ab72cbae2e4b7dda9\",\"models\":[{\"units\":\"mm\",\"quantity\":1,\"model_id\":1905,\"material_id\":1}]}",
       "headers": {
         "content-type": "application/json",
         "key": "a4f2363e88058775c029ba239a8a3165ccf39f27d74f4e8c3a4db776386e6618"
@@ -12,14 +12,14 @@
       "url": "https://staging-api.voodoomfg.com/api/1/order/create"
     },
     "response": {
-      "body": "{\"quote\":{\"extras\":[{\"name\":\"production_option\",\"price\":0}],\"items\":85.14,\"shipping\":7.22,\"total\":92.36,\"errors\":[]},\"order_items\":[{\"units\":\"mm\",\"qty\":1,\"material_id\":1,\"id\":1905,\"filename\":\"demo.stl\"}],\"shipping\":{\"delivery\":\"rate_0b011e90eb824e8ab72cbae2e4b7dda9\"},\"due_date\":\"2016-08-11T05:50:12.437Z\",\"quote_id\":\"438f0e120a33eec2b312adcaf1d0dab3395a88c7bf8fa40203bb81ee261966c6\"}",
+      "body": "Internal Server Error",
       "headers": {
-        "Content-Type": "application/json; charset=utf-8",
-        "Content-Length": "384",
-        "Date": "Thu, 11 Aug 2016 05:50:12 GMT",
+        "Content-Type": "text/plain; charset=utf-8",
+        "Date": "Tue, 08 Nov 2016 07:59:00 GMT",
+        "Content-Length": "21",
         "Connection": "keep-alive"
       },
-      "status_code": 200,
+      "status_code": 500,
       "type": "ok"
     }
   }

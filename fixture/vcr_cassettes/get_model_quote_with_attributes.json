@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "\"\"",
+      "body": "",
       "headers": {
         "content-type": "application/json",
         "key": "a4f2363e88058775c029ba239a8a3165ccf39f27d74f4e8c3a4db776386e6618"
@@ -12,14 +12,14 @@
       "url": "https://staging-api.voodoomfg.com/api/1/model/quote/attributes?material_id=7&quantity=1&surface_area=100&units=cm&volume=200&x=15&y=22&z=23"
     },
     "response": {
-      "body": "Bad Request",
+      "body": "{\"quote\":34,\"material_id\":7,\"units\":\"cm\",\"unit_cost\":34,\"quantity\":1,\"total\":34}",
       "headers": {
-        "Content-Type": "text/plain; charset=utf-8",
-        "Content-Length": "11",
-        "Date": "Thu, 11 Aug 2016 07:50:23 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 08 Nov 2016 06:13:04 GMT",
+        "Content-Length": "80",
         "Connection": "keep-alive"
       },
-      "status_code": 400,
+      "status_code": 200,
       "type": "ok"
     }
   }
