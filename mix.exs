@@ -49,8 +49,8 @@ defmodule Voodoo.Mixfile do
   defp deps do
     [
       {:poison, "~> 2.0"},
-      {:httpoison, "~> 0.9.0"},
-      {:ex_doc, github: "elixir-lang/ex_doc"},
+      {:httpoison, "~> 0.10.0"},
+      {:ex_doc, github: "elixir-lang/ex_doc", only: :doc},
       {:exvcr, "~> 0.7", only: :test}
     ]
   end
