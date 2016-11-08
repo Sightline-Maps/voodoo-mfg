@@ -5,7 +5,8 @@ defmodule Voodoo do
 
   ## Configuration
   """
-  use HTTPoison.Base
+
+  alias Voodoo.Util
 
   defmodule MissingSecretKeyError do
     defexception message: """
@@ -62,18 +63,17 @@ defmodule Voodoo do
   Process request body and convert to escaped json string
   Accepts a map
   """
-  def process_request_body(body) do
+  def process_request_body(body) when is_map(body) do
     Poison.encode! body
   end
+  def process_request_body(body), do: body
 
   @doc """
   Set request headers and format
   """
-  def process_request_headers(_) do
-    Map.new
-    |> Map.put("key", Voodoo.secret_key)
-    |> Map.put("content-type",  "application/json")
-    |> Map.to_list
+  def request_headers do
+    [{"content-type", "application/json"},
+     {"key", Voodoo.secret_key}]
   end
 
   @doc """
@@ -86,7 +86,11 @@ defmodule Voodoo do
     * body - request body
     * options - request options
   """
-  def make_request(method, url, body \\ %{}, options \\ []) do
-    {:ok, _response} = request(method, url, body, [], options)
+  def make_request(method, path, body \\ "", options \\ []) do
+    url = process_url(path)
+    body = process_request_body(body)
+
+    HTTPoison.request(method, url, body, request_headers, options)
+    |> Util.handle_voodoo_response
   end
 end

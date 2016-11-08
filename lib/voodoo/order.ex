@@ -26,7 +26,6 @@ defmodule Voodoo.Order do
     opts = Util.prepare_params(params)
 
     Voodoo.make_request(:get, url, %{}, opts)
-    |> Util.handle_voodoo_response
   end
 
   @doc """
@@ -40,7 +39,8 @@ defmodule Voodoo.Order do
                 qty: 1,
                 units: "mm"}
               ],
-              shipping_info: %{
+              shipping_address: %{
+                email: "test@voodoomfg.com",
                 city: "foo",
                 name: "bar",
                 zip: "12345",
@@ -58,7 +58,6 @@ defmodule Voodoo.Order do
     body = params
 
     Voodoo.make_request(:post, url, body)
-    |> Util.handle_voodoo_response
   end
 
   @doc """
@@ -82,7 +81,6 @@ defmodule Voodoo.Order do
     body = params
 
     Voodoo.make_request(:post, url, body)
-    |> Util.handle_voodoo_response
   end
 
   @doc """
@@ -99,7 +97,5 @@ defmodule Voodoo.Order do
     body = params
 
     Voodoo.make_request(:post, url, body)
-    |> Util.handle_voodoo_response
   end
-
 end

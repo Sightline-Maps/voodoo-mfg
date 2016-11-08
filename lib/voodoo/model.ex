@@ -24,7 +24,6 @@ defmodule Voodoo.Model do
     body = params
 
     Voodoo.make_request(:post, @endpoint, body, opts)
-    |> Util.handle_voodoo_response
   end
 
   @doc """
@@ -39,18 +38,17 @@ defmodule Voodoo.Model do
 
   ## Examples
 
-  {:ok, result} = Voodoo.Model.quote(
-                  %{model_id: 1234,
+  {:ok, result} = Voodoo.Model.get_quote(
+                  %{model_id: 4415,
                     units: "cm",
                     material_id: 7,
-                    qty: 1})
+                    quantity: 1})
   """
   def get_quote(params) do
     url = @endpoint <> "/quote"
     opts = Util.prepare_params(params)
 
     Voodoo.make_request(:get, url, "", opts)
-    |> Util.handle_voodoo_response
   end
 
   @doc """
@@ -85,6 +83,5 @@ defmodule Voodoo.Model do
     opts = Util.prepare_params(params)
 
     Voodoo.make_request(:get, url , "", opts)
-    |> Util.handle_voodoo_response
   end
 end

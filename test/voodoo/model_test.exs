@@ -10,15 +10,22 @@ defmodule Voodoo.ModelTest do
     use_cassette "get model id" do
       params = %{file_url: "https://s3-us-west-2.amazonaws.com/sightline-maps-static-assets/demo.stl"}
       {:ok, resp} = id(params)
-      assert resp == %{
+      assert %{
         "file_bucket" => "repaired-models",
-        "file_key" => "6f15faa7/aeb6/4fa9/ae99/5e92949e58ec/demo.stl",
-        "file_uri" => "repaired-models", "id" => 1907, "notes" => nil,
-        "surface_area" => 200797.360817945, "volume" => 930583.831250032,
-        "x" => 299, "y" => 289, "z" => 38.2941093444824}
+        "file_key" => _,
+        "file_uri" => "repaired-models",
+        "id" => _id,
+        "notes" => nil,
+        "rendering_url" => nil,
+        "surface_area" => 200797.360817945,
+        "volume" => 930583.831250032,
+        "x" => 299,
+        "y" => 289,
+        "z" => 38.2941093444824} = resp
     end
   end
 
+  @tag skip: "API server needs to accept POST requests or query parameters for GET"
   test "get the quote for a model" do
     use_cassette "get the quote for a model" do
       params = %{model_id: 1905,
@@ -43,7 +50,14 @@ defmodule Voodoo.ModelTest do
                  units: "cm",
                  quantity: 1}
       {:ok, resp} = quote_with_attributes(params)
-      assert resp == %{}
+      assert resp == %{
+        "material_id" => 7,
+        "quantity" => 1,
+        "quote" => 34,
+        "total" => 34,
+        "unit_cost" => 34,
+        "units" => "cm"
+      }
     end
   end
 end
